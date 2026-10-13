@@ -130,6 +130,32 @@
     border: 2px solid var(--primary);
   }
   .btn-outline:hover { background: #eef3f9; }
+  .download-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .download-list .btn {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    display: block;
+    min-height: 52px;
+    padding: 0.9rem 1rem;
+    font-size: 1.05rem;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  .sponsor-box {
+    background: #eef3f9;
+    border: 1px solid #1e4d8c;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+  .sponsor-box strong { color: #1e4d8c; }
   label {
     display: block;
     margin: 1rem 0 0.4rem;
@@ -159,10 +185,6 @@
     margin: 0.75rem 0;
   }
   ul.clean li { margin: 0.5rem 0; }
-  .download-list a {
-    display: block;
-    margin: 0.6rem 0;
-  }
   footer {
     text-align: center;
     margin-top: 3rem;
@@ -179,7 +201,7 @@
     header h1 { font-size: 1.8rem; }
     .hero h2 { font-size: 1.55rem; }
     .container { padding: 1rem; }
-    .btn { width: 100%; text-align: center; }
+    .btn { width: 100%; text-align: center; display: block; margin: 0.4rem 0; }
   }
 </style>
 </head>
@@ -243,16 +265,29 @@
 
   <section id="guides" class="card">
     <h3>Guides & Downloadable Templates</h3>
+    <div class="sponsor-box">
+      <strong>Sponsored by Creignificent LLC</strong><br>
+      Free educational resource. Not affiliated with Medicare, CMS, or the U.S. government.<br>
+      Creignificent LLC is not responsible for any decisions or actions taken based on this information. Always verify details with official Medicare sources.
+    </div>
     <p>Print these or save them on your phone. All are free and simple to use.</p>
 
+    <h4 style="margin:1.25rem 0 0.75rem; color:#1e4d8c; font-weight:normal;">Printable Guides (open and print)</h4>
     <div class="download-list">
-      <a href="#" class="btn btn-green" onclick="downloadGuide('checklist'); return false;">Download Statement Review Checklist</a>
-      <a href="#" class="btn btn-green" onclick="downloadGuide('log'); return false;">Download Unauthorized Charge Log</a>
-      <a href="#" class="btn btn-green" onclick="downloadGuide('protect'); return false;">Download “Protect Your Medicare Number” Handout</a>
-      <a href="#" class="btn btn-green" onclick="downloadGuide('script'); return false;">Download “What to Say When You Call” Script</a>
+      <a href="/poster.html" class="btn btn-green" target="_blank">Open Poster (print on letter paper)</a>
+      <a href="/cards.html" class="btn btn-green" target="_blank">Open Handout Cards (print and cut)</a>
+      <a href="/tablet-guide.html" class="btn btn-green" target="_blank">Open One-Page Tablet Guide</a>
+    </div>
+
+    <h4 style="margin:1.5rem 0 0.75rem; color:#1e4d8c; font-weight:normal;">Text Checklists (download and save)</h4>
+    <div class="download-list">
+      <a href="#" class="btn btn-outline" onclick="downloadGuide('checklist'); return false;">Download Statement Review Checklist</a>
+      <a href="#" class="btn btn-outline" onclick="downloadGuide('log'); return false;">Download Unauthorized Charge Log</a>
+      <a href="#" class="btn btn-outline" onclick="downloadGuide('protect'); return false;">Download “Protect Your Medicare Number” Handout</a>
+      <a href="#" class="btn btn-outline" onclick="downloadGuide('script'); return false;">Download “What to Say When You Call” Script</a>
       <a href="#" class="btn btn-outline" onclick="downloadGuide('full'); return false;">Download Full Information Guide</a>
     </div>
-    <p class="note">These open as simple text files you can print or save.</p>
+    <p class="note">The green buttons open ready-to-print pages. The outline buttons download simple text files you can save or print.</p>
   </section>
 
   <section id="report" class="card">
@@ -281,7 +316,8 @@
 </div>
 
 <footer>
-  <p>Medi-Claim Checker is an independent educational tool by Creignificent LLC. It is not affiliated with Medicare or the U.S. government.<br>
+  <p>Medi-Claim Checker is a free educational tool sponsored by Creignificent LLC.<br>
+  Not affiliated with Medicare, CMS, or the U.S. government.<br>
   Creignificent LLC is not responsible for any actions taken based on this information. Always verify with official sources.</p>
 </footer>
 
@@ -333,16 +369,19 @@ function downloadGuide(type) {
     full: `MEDI-CLAIM CHECKER\nInformation Guide for Seniors\n\nHow unauthorized billing works\nFraudsters steal Medicare numbers and use shell companies to bill for medical equipment (catheters, wound care, braces, etc.) that people never ordered or received.\n\nWhat to look for\n• Charges from companies you don’t know\n• Medical equipment you never asked for\n• Multiple large bills in a short time\n\nWhat to do\n1. Review every Medicare Summary Notice.\n2. If something looks wrong, call 1-800-MEDICARE.\n3. Contact your local Senior Medicare Patrol for free help.\n4. Never share your Medicare number with unsolicited callers.\n\nThis guide is for education only and is not affiliated with Medicare.`
   };
 
-  const content = guides[type] || guides.full;
-  const blob = new Blob([content], { type: 'text/plain' });
+  const text = guides[type] || guides.full;
+  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
   a.download = `Medi-Claim-Checker-${type}.txt`;
+  a.style.display = 'none';
   document.body.appendChild(a);
   a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  setTimeout(() => {
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }, 100);
 }
 
 document.querySelectorAll('nav a').forEach(link => {
