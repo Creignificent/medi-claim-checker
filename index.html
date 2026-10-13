@@ -3,6 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Medi-Claim Checker" />
+<meta property="og:description" content="Free tool to help seniors review Medicare claims, spot unauthorized bills, and know how to report them. Sponsored by Creignificent LLC." />
+<meta property="og:image" content="https://medi-claim-checker.netlify.app/og-card.jpg" />
+<meta property="og:url" content="https://medi-claim-checker.netlify.app" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Medi-Claim Checker" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Medi-Claim Checker" />
+<meta name="twitter:description" content="Check your Medicare claims. Stop unauthorized bills. Free educational tool sponsored by Creignificent LLC." />
+<meta name="twitter:image" content="https://medi-claim-checker.netlify.app/og-card.jpg" />
 <title>Medi-Claim Checker</title>
 <style>
   :root {
@@ -27,176 +37,37 @@
     line-height: 1.6;
     padding-bottom: 3rem;
   }
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 1.25rem;
-  }
-  header {
-    background: var(--primary);
-    color: white;
-    padding: 1.5rem 0;
-    text-align: center;
-  }
-  header h1 {
-    font-size: 2.2rem;
-    font-weight: normal;
-    letter-spacing: -0.5px;
-  }
-  header p {
-    font-size: 1.15rem;
-    margin-top: 0.4rem;
-    opacity: 0.95;
-  }
-  nav {
-    background: white;
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  }
-  nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.25rem;
-    padding: 0.6rem;
-  }
-  nav a {
-    display: inline-block;
-    padding: 0.7rem 1.1rem;
-    text-decoration: none;
-    color: var(--primary);
-    font-size: 1.05rem;
-    border-radius: 8px;
-    font-weight: 500;
-  }
-  nav a:hover, nav a.active {
-    background: #eef3f9;
-  }
-  .hero {
-    text-align: center;
-    padding: 2.5rem 1rem 2rem;
-  }
-  .hero h2 {
-    font-size: 1.9rem;
-    font-weight: normal;
-    color: var(--primary);
-    margin-bottom: 0.75rem;
-  }
-  .hero p {
-    max-width: 640px;
-    margin: 0 auto 1.5rem;
-    color: var(--muted);
-  }
-  .card {
-    background: var(--card);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 1.75rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid var(--border);
-  }
-  h3 {
-    font-size: 1.45rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
-    font-weight: normal;
-  }
-  .btn {
-    display: inline-block;
-    background: var(--primary);
-    color: white;
-    padding: 0.85rem 1.6rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    border: none;
-    cursor: pointer;
-    margin: 0.4rem 0.3rem 0.4rem 0;
-    min-height: 48px;
-    line-height: 1.2;
-  }
+  .container { max-width: 900px; margin: 0 auto; padding: 1.25rem; }
+  header { background: var(--primary); color: white; padding: 1.5rem 0; text-align: center; }
+  header h1 { font-size: 2.2rem; font-weight: normal; letter-spacing: -0.5px; }
+  header p { font-size: 1.15rem; margin-top: 0.4rem; opacity: 0.95; }
+  nav { background: white; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+  nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 0.25rem; padding: 0.6rem; }
+  nav a { display: inline-block; padding: 0.7rem 1.1rem; text-decoration: none; color: var(--primary); font-size: 1.05rem; border-radius: 8px; font-weight: 500; }
+  nav a:hover, nav a.active { background: #eef3f9; }
+  .hero { text-align: center; padding: 2.5rem 1rem 2rem; }
+  .hero h2 { font-size: 1.9rem; font-weight: normal; color: var(--primary); margin-bottom: 0.75rem; }
+  .hero p { max-width: 640px; margin: 0 auto 1.5rem; color: var(--muted); }
+  .card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.75rem; margin-bottom: 1.5rem; border: 1px solid var(--border); }
+  h3 { font-size: 1.45rem; color: var(--primary); margin-bottom: 1rem; font-weight: normal; }
+  .btn { display: inline-block; background: var(--primary); color: white; padding: 0.85rem 1.6rem; border-radius: 8px; text-decoration: none; font-size: 1.1rem; border: none; cursor: pointer; margin: 0.4rem 0.3rem 0.4rem 0; min-height: 48px; line-height: 1.2; }
   .btn:hover { background: var(--primary-hover); }
-  .btn-green {
-    background: var(--accent);
-  }
+  .btn-green { background: var(--accent); }
   .btn-green:hover { background: var(--accent-hover); }
-  .btn-outline {
-    background: white;
-    color: var(--primary);
-    border: 2px solid var(--primary);
-  }
+  .btn-outline { background: white; color: var(--primary); border: 2px solid var(--primary); }
   .btn-outline:hover { background: #eef3f9; }
-  .download-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  .download-list .btn {
-    width: 100%;
-    text-align: center;
-    margin: 0;
-    display: block;
-    min-height: 52px;
-    padding: 0.9rem 1rem;
-    font-size: 1.05rem;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-  }
-  .sponsor-box {
-    background: #eef3f9;
-    border: 1px solid #1e4d8c;
-    border-radius: 8px;
-    padding: 1rem 1.25rem;
-    margin: 1.25rem 0 1.5rem;
-    font-size: 1.05rem;
-    line-height: 1.5;
-  }
+  .download-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .download-list .btn { width: 100%; text-align: center; margin: 0; display: block; min-height: 52px; padding: 0.9rem 1rem; font-size: 1.05rem; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+  .sponsor-box { background: #eef3f9; border: 1px solid #1e4d8c; border-radius: 8px; padding: 1rem 1.25rem; margin: 1.25rem 0 1.5rem; font-size: 1.05rem; line-height: 1.5; }
   .sponsor-box strong { color: #1e4d8c; }
-  label {
-    display: block;
-    margin: 1rem 0 0.4rem;
-    font-weight: 600;
-  }
-  input, select, textarea {
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1.1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-family: inherit;
-  }
-  .result {
-    margin-top: 1.25rem;
-    padding: 1.25rem;
-    border-radius: 8px;
-    background: #f0f7f2;
-    border-left: 5px solid var(--accent);
-  }
-  .result.warning {
-    background: #fff8e6;
-    border-left-color: #d4a017;
-  }
-  ul.clean {
-    padding-left: 1.3rem;
-    margin: 0.75rem 0;
-  }
+  label { display: block; margin: 1rem 0 0.4rem; font-weight: 600; }
+  input, select, textarea { width: 100%; padding: 0.75rem; font-size: 1.1rem; border: 1px solid #ccc; border-radius: 8px; font-family: inherit; }
+  .result { margin-top: 1.25rem; padding: 1.25rem; border-radius: 8px; background: #f0f7f2; border-left: 5px solid var(--accent); }
+  .result.warning { background: #fff8e6; border-left-color: #d4a017; }
+  ul.clean { padding-left: 1.3rem; margin: 0.75rem 0; }
   ul.clean li { margin: 0.5rem 0; }
-  footer {
-    text-align: center;
-    margin-top: 3rem;
-    color: var(--muted);
-    font-size: 0.95rem;
-    padding: 1.5rem;
-  }
-  .note {
-    font-size: 0.95rem;
-    color: var(--muted);
-    margin-top: 0.75rem;
-  }
+  footer { text-align: center; margin-top: 3rem; color: var(--muted); font-size: 0.95rem; padding: 1.5rem; }
+  .note { font-size: 0.95rem; color: var(--muted); margin-top: 0.75rem; }
   @media (max-width: 600px) {
     header h1 { font-size: 1.8rem; }
     .hero h2 { font-size: 1.55rem; }
@@ -206,190 +77,20 @@
 </style>
 </head>
 <body>
-
-<header>
-  <div class="container">
-    <h1>Medi-Claim Checker</h1>
-    <p>Help seniors review Medicare claims and spot unauthorized bills</p>
-  </div>
-</header>
-
-<nav>
-  <ul>
-    <li><a href="#home" class="active">Home</a></li>
-    <li><a href="#check">Check a Claim</a></li>
-    <li><a href="#guides">Guides & Downloads</a></li>
-    <li><a href="#report">How to Report</a></li>
-    <li><a href="#family">For Families</a></li>
-  </ul>
-</nav>
-
+<header><div class="container"><h1>Medi-Claim Checker</h1><p>Help seniors review Medicare claims and spot unauthorized bills</p></div></header>
+<nav><ul><li><a href="#home" class="active">Home</a></li><li><a href="#check">Check a Claim</a></li><li><a href="#guides">Guides & Downloads</a></li><li><a href="#report">How to Report</a></li><li><a href="#family">For Families</a></li></ul></nav>
 <div class="container">
-
-  <section id="home" class="hero">
-    <h2>Check your Medicare statements with confidence</h2>
-    <p>Unauthorized bills for medical equipment you never ordered are a common form of fraud. Medi-Claim Checker helps you review claims, recognize red flags, and know exactly what to do next.</p>
-    <a href="#check" class="btn">Start Checking a Claim</a>
-    <a href="#guides" class="btn btn-outline">Download Free Guides</a>
-  </section>
-
-  <section id="check" class="card">
-    <h3>Check a Claim</h3>
-    <p>Answer a few simple questions about a charge on your Medicare statement.</p>
-
-    <label for="supplier">Name of the company or supplier</label>
-    <input type="text" id="supplier" placeholder="Example: Sunshine Senior Solutions">
-
-    <label for="item">What did they bill for?</label>
-    <select id="item">
-      <option value="">Select one</option>
-      <option value="catheters">Urinary catheters or bladder supplies</option>
-      <option value="wound">Wound dressings or wound care</option>
-      <option value="braces">Braces, orthotics, or supports</option>
-      <option value="other-dme">Other medical equipment</option>
-      <option value="unsure">I’m not sure / something else</option>
-    </select>
-
-    <label for="ordered">Did you order or receive this item?</label>
-    <select id="ordered">
-      <option value="">Select one</option>
-      <option value="no">No — I never ordered or received it</option>
-      <option value="yes">Yes — I ordered and received it</option>
-      <option value="unsure">I’m not sure</option>
-    </select>
-
-    <button class="btn" onclick="checkClaim()">Check This Claim</button>
-
-    <div id="result"></div>
-  </section>
-
-  <section id="guides" class="card">
-    <h3>Guides & Downloadable Templates</h3>
-    <div class="sponsor-box">
-      <strong>Sponsored by Creignificent LLC</strong><br>
-      Free educational resource. Not affiliated with Medicare, CMS, or the U.S. government.<br>
-      Creignificent LLC is not responsible for any decisions or actions taken based on this information. Always verify details with official Medicare sources.
-    </div>
-    <p>Print these or save them on your phone. All are free and simple to use.</p>
-
-    <h4 style="margin:1.25rem 0 0.75rem; color:#1e4d8c; font-weight:normal;">Printable Guides (open and print)</h4>
-    <div class="download-list">
-      <a href="/poster.html" class="btn btn-green" target="_blank">Open Poster (print on letter paper)</a>
-      <a href="/cards.html" class="btn btn-green" target="_blank">Open Handout Cards (print and cut)</a>
-      <a href="/tablet-guide.html" class="btn btn-green" target="_blank">Open One-Page Tablet Guide</a>
-    </div>
-
-    <h4 style="margin:1.5rem 0 0.75rem; color:#1e4d8c; font-weight:normal;">Text Checklists (download and save)</h4>
-    <div class="download-list">
-      <a href="#" class="btn btn-outline" onclick="downloadGuide('checklist'); return false;">Download Statement Review Checklist</a>
-      <a href="#" class="btn btn-outline" onclick="downloadGuide('log'); return false;">Download Unauthorized Charge Log</a>
-      <a href="#" class="btn btn-outline" onclick="downloadGuide('protect'); return false;">Download “Protect Your Medicare Number” Handout</a>
-      <a href="#" class="btn btn-outline" onclick="downloadGuide('script'); return false;">Download “What to Say When You Call” Script</a>
-      <a href="#" class="btn btn-outline" onclick="downloadGuide('full'); return false;">Download Full Information Guide</a>
-    </div>
-    <p class="note">The green buttons open ready-to-print pages. The outline buttons download simple text files you can save or print.</p>
-  </section>
-
-  <section id="report" class="card">
-    <h3>How to Report a Suspicious Claim</h3>
-    <ul class="clean">
-      <li>Have your Medicare card and the statement in front of you.</li>
-      <li>Note the company name, date of service, and amount billed.</li>
-      <li>Call Medicare at <strong>1-800-MEDICARE (1-800-633-4227)</strong>.</li>
-      <li>You can also contact your local Senior Medicare Patrol (SMP) — they help for free.</li>
-    </ul>
-    <a href="tel:18006334227" class="btn">Call 1-800-MEDICARE</a>
-    <p class="note">Reporting is free and confidential. You will not get in trouble for reporting a bill you did not authorize.</p>
-  </section>
-
-  <section id="family" class="card">
-    <h3>For Families & Caregivers</h3>
-    <p>You can help a loved one review statements without taking over their care.</p>
-    <ul class="clean">
-      <li>Offer to sit together once a month and look at the Medicare Summary Notice.</li>
-      <li>Look specifically for medical equipment from companies they don’t recognize.</li>
-      <li>Help them call Medicare if something looks wrong — they should be on the line too.</li>
-      <li>Never give their Medicare number to anyone who contacts you first.</li>
-    </ul>
-  </section>
-
+<section id="home" class="hero"><h2>Check your Medicare statements with confidence</h2><p>Unauthorized bills for medical equipment you never ordered are a common form of fraud. Medi-Claim Checker helps you review claims, recognize red flags, and know exactly what to do next.</p><a href="#check" class="btn">Start Checking a Claim</a><a href="#guides" class="btn btn-outline">Download Free Guides</a></section>
+<section id="check" class="card"><h3>Check a Claim</h3><p>Answer a few simple questions about a charge on your Medicare statement.</p><label for="supplier">Name of the company or supplier</label><input type="text" id="supplier" placeholder="Example: Sunshine Senior Solutions"><label for="item">What did they bill for?</label><select id="item"><option value="">Select one</option><option value="catheters">Urinary catheters or bladder supplies</option><option value="wound">Wound dressings or wound care</option><option value="braces">Braces, orthotics, or supports</option><option value="other-dme">Other medical equipment</option><option value="unsure">I’m not sure / something else</option></select><label for="ordered">Did you order or receive this item?</label><select id="ordered"><option value="">Select one</option><option value="no">No — I never ordered or received it</option><option value="yes">Yes — I ordered and received it</option><option value="unsure">I’m not sure</option></select><button class="btn" onclick="checkClaim()">Check This Claim</button><div id="result"></div></section>
+<section id="guides" class="card"><h3>Guides & Downloadable Templates</h3><div class="sponsor-box"><strong>Sponsored by Creignificent LLC</strong><br>Free educational resource. Not affiliated with Medicare, CMS, or the U.S. government.<br>Creignificent LLC is not responsible for any decisions or actions taken based on this information. Always verify details with official Medicare sources.</div><p>Print these or save them on your phone. All are free and simple to use.</p><h4 style="margin:1.25rem 0 0.75rem; color:#1e4d8c; font-weight:normal;">Printable Guides (open and print)</h4><div class="download-list"><a href="/poster.html" class="btn btn-green" target="_blank">Open Poster (print on letter paper)</a><a href="/cards.html" class="btn btn-green" target="_blank">Open Handout Cards (print and cut)</a><a href="/tablet-guide.html" class="btn btn-green" target="_blank">Open One-Page Tablet Guide</a></div><h4 style="margin:1.5rem 0 0.75rem; color:#1e4d8c; font-weight:normal;">Text Checklists (download and save)</h4><div class="download-list"><a href="#" class="btn btn-outline" onclick="downloadGuide('checklist'); return false;">Download Statement Review Checklist</a><a href="#" class="btn btn-outline" onclick="downloadGuide('log'); return false;">Download Unauthorized Charge Log</a><a href="#" class="btn btn-outline" onclick="downloadGuide('protect'); return false;">Download “Protect Your Medicare Number” Handout</a><a href="#" class="btn btn-outline" onclick="downloadGuide('script'); return false;">Download “What to Say When You Call” Script</a><a href="#" class="btn btn-outline" onclick="downloadGuide('full'); return false;">Download Full Information Guide</a></div><p class="note">The green buttons open ready-to-print pages. The outline buttons download simple text files you can save or print.</p></section>
+<section id="report" class="card"><h3>How to Report a Suspicious Claim</h3><ul class="clean"><li>Have your Medicare card and the statement in front of you.</li><li>Note the company name, date of service, and amount billed.</li><li>Call Medicare at <strong>1-800-MEDICARE (1-800-633-4227)</strong>.</li><li>You can also contact your local Senior Medicare Patrol (SMP) — they help for free.</li></ul><a href="tel:18006334227" class="btn">Call 1-800-MEDICARE</a><p class="note">Reporting is free and confidential. You will not get in trouble for reporting a bill you did not authorize.</p></section>
+<section id="family" class="card"><h3>For Families & Caregivers</h3><p>You can help a loved one review statements without taking over their care.</p><ul class="clean"><li>Offer to sit together once a month and look at the Medicare Summary Notice.</li><li>Look specifically for medical equipment from companies they don’t recognize.</li><li>Help them call Medicare if something looks wrong — they should be on the line too.</li><li>Never give their Medicare number to anyone who contacts you first.</li></ul></section>
 </div>
-
-<footer>
-  <p>Medi-Claim Checker is a free educational tool sponsored by Creignificent LLC.<br>
-  Not affiliated with Medicare, CMS, or the U.S. government.<br>
-  Creignificent LLC is not responsible for any actions taken based on this information. Always verify with official sources.</p>
-</footer>
-
+<footer><p>Medi-Claim Checker is a free educational tool sponsored by Creignificent LLC.<br>Not affiliated with Medicare, CMS, or the U.S. government.<br>Creignificent LLC is not responsible for any actions taken based on this information. Always verify with official sources.</p></footer>
 <script>
-function checkClaim() {
-  const supplier = document.getElementById('supplier').value.trim();
-  const item = document.getElementById('item').value;
-  const ordered = document.getElementById('ordered').value;
-  const result = document.getElementById('result');
-
-  if (!item || !ordered) {
-    result.innerHTML = '<div class="result warning"><strong>Please answer the questions above</strong> so we can help you review the claim.</div>';
-    return;
-  }
-
-  let message = '';
-  let isWarning = false;
-
-  if (ordered === 'no') {
-    isWarning = true;
-    message = `<strong>This looks like a possible unauthorized charge.</strong><br><br>
-    You said you did not order or receive this item. Charges for medical equipment (especially catheters, wound care, or braces) from companies you don’t know are a common form of Medicare fraud.<br><br>
-    <strong>What to do next:</strong><br>
-    1. Write down the company name, date, and amount.<br>
-    2. Call 1-800-MEDICARE and report it.<br>
-    3. Keep your statement for your records.`;
-  } else if (ordered === 'unsure') {
-    isWarning = true;
-    message = `<strong>It’s worth double-checking this claim.</strong><br><br>
-    If you’re not sure whether you ordered the item, review the statement carefully and consider calling Medicare to confirm.`;
-  } else {
-    message = `<strong>This claim may be legitimate.</strong><br><br>
-    You indicated you ordered and received the item. Still, it’s good practice to review every statement. If the amount seems unusually high or the company name is unfamiliar, you can still call Medicare to confirm.`;
-  }
-
-  if (supplier) {
-    message = `<strong>Company:</strong> ${supplier}<br><br>` + message;
-  }
-
-  result.innerHTML = `<div class="result ${isWarning ? 'warning' : ''}">${message}</div>`;
-}
-
-function downloadGuide(type) {
-  const guides = {
-    checklist: `MEDI-CLAIM CHECKER\nStatement Review Checklist\n\nDo this once a month when your Medicare Summary Notice arrives:\n\n□ Open the statement and look at every line.\n□ Check the name of every company that billed you.\n□ Look especially for durable medical equipment (catheters, braces, wound care, orthotics).\n□ Ask yourself: “Did I order this? Did I receive it?”\n□ If the answer is no, write it down and call 1-800-MEDICARE.\n□ Keep the statement in a folder for your records.\n\nTip: Create a free account at Medicare.gov to see claims faster.`,
-    log: `MEDI-CLAIM CHECKER\nUnauthorized Charge Log\n\nDate I noticed it: _______________\nCompany / Supplier name: _______________\nDate of service on the bill: _______________\nAmount billed: $_______________\nWhat they claimed to supply: _______________\nDid I order or receive it?  Yes / No\nDate I called Medicare: _______________\nReference number (if given): _______________\nNotes: _______________`,
-    protect: `MEDI-CLAIM CHECKER\nProtect Your Medicare Number\n\n• Treat your Medicare number like a credit card.\n• Never give it to someone who calls, texts, or emails you first.\n• Legitimate doctors and Medicare already have your number.\n• Ignore offers for “free” medical equipment.\n• Review your statements every month.\n• Report anything you didn’t order right away.\n\nCall 1-800-MEDICARE if you see a charge you don’t recognize.`,
-    script: `MEDI-CLAIM CHECKER\nWhat to Say When You Call Medicare\n\n“Hello, I am calling to report a charge on my Medicare statement that I did not order or receive.\n\nMy name is _______________.\nMy Medicare number is _______________.\nThe company that billed me is _______________.\nThe date of service is _______________.\nThe amount is $_______________.\nThey billed for _______________.\n\nI did not order this and I did not receive it. Please help me report this as fraud.”\n\nHave your statement in front of you when you call.`,
-    full: `MEDI-CLAIM CHECKER\nInformation Guide for Seniors\n\nHow unauthorized billing works\nFraudsters steal Medicare numbers and use shell companies to bill for medical equipment (catheters, wound care, braces, etc.) that people never ordered or received.\n\nWhat to look for\n• Charges from companies you don’t know\n• Medical equipment you never asked for\n• Multiple large bills in a short time\n\nWhat to do\n1. Review every Medicare Summary Notice.\n2. If something looks wrong, call 1-800-MEDICARE.\n3. Contact your local Senior Medicare Patrol for free help.\n4. Never share your Medicare number with unsolicited callers.\n\nThis guide is for education only and is not affiliated with Medicare.`
-  };
-
-  const text = guides[type] || guides.full;
-  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `Medi-Claim-Checker-${type}.txt`;
-  a.style.display = 'none';
-  document.body.appendChild(a);
-  a.click();
-  setTimeout(() => {
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  }, 100);
-}
-
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', function() {
-    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-    this.classList.add('active');
-  });
-});
+function checkClaim(){const supplier=document.getElementById('supplier').value.trim();const item=document.getElementById('item').value;const ordered=document.getElementById('ordered').value;const result=document.getElementById('result');if(!item||!ordered){result.innerHTML='<div class="result warning"><strong>Please answer the questions above</strong> so we can help you review the claim.</div>';return;}let message='';let isWarning=false;if(ordered==='no'){isWarning=true;message=`<strong>This looks like a possible unauthorized charge.</strong><br><br>You said you did not order or receive this item. Charges for medical equipment (especially catheters, wound care, or braces) from companies you don’t know are a common form of Medicare fraud.<br><br><strong>What to do next:</strong><br>1. Write down the company name, date, and amount.<br>2. Call 1-800-MEDICARE and report it.<br>3. Keep your statement for your records.`;}else if(ordered==='unsure'){isWarning=true;message=`<strong>It’s worth double-checking this claim.</strong><br><br>If you’re not sure whether you ordered the item, review the statement carefully and consider calling Medicare to confirm.`;}else{message=`<strong>This claim may be legitimate.</strong><br><br>You indicated you ordered and received the item. Still, it’s good practice to review every statement. If the amount seems unusually high or the company name is unfamiliar, you can still call Medicare to confirm.`;}if(supplier){message=`<strong>Company:</strong> ${supplier}<br><br>`+message;}result.innerHTML=`<div class="result ${isWarning?'warning':''}">${message}</div>`;}
+function downloadGuide(type){const guides={checklist:`MEDI-CLAIM CHECKER\nStatement Review Checklist\n\nDo this once a month when your Medicare Summary Notice arrives:\n\n□ Open the statement and look at every line.\n□ Check the name of every company that billed you.\n□ Look especially for durable medical equipment (catheters, braces, wound care, orthotics).\n□ Ask yourself: “Did I order this? Did I receive it?”\n□ If the answer is no, write it down and call 1-800-MEDICARE.\n□ Keep the statement in a folder for your records.\n\nTip: Create a free account at Medicare.gov to see claims faster.`,log:`MEDI-CLAIM CHECKER\nUnauthorized Charge Log\n\nDate I noticed it: _______________\nCompany / Supplier name: _______________\nDate of service on the bill: _______________\nAmount billed: $_______________\nWhat they claimed to supply: _______________\nDid I order or receive it?  Yes / No\nDate I called Medicare: _______________\nReference number (if given): _______________\nNotes: _______________`,protect:`MEDI-CLAIM CHECKER\nProtect Your Medicare Number\n\n• Treat your Medicare number like a credit card.\n• Never give it to someone who calls, texts, or emails you first.\n• Legitimate doctors and Medicare already have your number.\n• Ignore offers for “free” medical equipment.\n• Review your statements every month.\n• Report anything you didn’t order right away.\n\nCall 1-800-MEDICARE if you see a charge you don’t recognize.`,script:`MEDI-CLAIM CHECKER\nWhat to Say When You Call Medicare\n\n“Hello, I am calling to report a charge on my Medicare statement that I did not order or receive.\n\nMy name is _______________.\nMy Medicare number is _______________.\nThe company that billed me is _______________.\nThe date of service is _______________.\nThe amount is $_______________.\nThey billed for _______________.\n\nI did not order this and I did not receive it. Please help me report this as fraud.”\n\nHave your statement in front of you when you call.`,full:`MEDI-CLAIM CHECKER\nInformation Guide for Seniors\n\nHow unauthorized billing works\nFraudsters steal Medicare numbers and use shell companies to bill for medical equipment (catheters, wound care, braces, etc.) that people never ordered or received.\n\nWhat to look for\n• Charges from companies you don’t know\n• Medical equipment you never asked for\n• Multiple large bills in a short time\n\nWhat to do\n1. Review every Medicare Summary Notice.\n2. If something looks wrong, call 1-800-MEDICARE.\n3. Contact your local Senior Medicare Patrol for free help.\n4. Never share your Medicare number with unsolicited callers.\n\nThis guide is for education only and is not affiliated with Medicare.`};const text=guides[type]||guides.full;const blob=new Blob([text],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`Medi-Claim-Checker-${type}.txt`;a.style.display='none';document.body.appendChild(a);a.click();setTimeout(()=>{document.body.removeChild(a);URL.revokeObjectURL(url);},100);}
+document.querySelectorAll('nav a').forEach(link=>{link.addEventListener('click',function(){document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));this.classList.add('active');});});
 </script>
 </body>
 </html>
